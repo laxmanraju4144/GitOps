@@ -233,8 +233,23 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shoppingassistantservice
+  name: vectordb
   namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ITkannadigaru/GitOps.git
+    targetRevision: main
+    path: base/vectordb
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
 spec:
   project: default
   source:

@@ -27,3 +27,5 @@ resources:
   - shippingservice/service.yaml
   - shoppingassistantservice/deployment.yaml
   - shoppingassistantservice/service.yaml
+  - vectordb/deployment.yaml
+  - vectordb/service.yaml

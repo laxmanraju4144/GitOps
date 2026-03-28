@@ -5,9 +5,7 @@ metadata:
   labels:
     app: shoppingassistantservice
 spec:
-  # Set to 0 — requires real GCP credentials (GOOGLE_API_KEY, AlloyDB) to run
-  # Change to 1 once env values are configured
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: shoppingassistantservice
@@ -16,7 +14,6 @@ spec:
       labels:
         app: shoppingassistantservice
     spec:
-      serviceAccountName: shoppingassistantservice
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
@@ -32,27 +29,13 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: false
-        image: manojkrishnappa/shoppingassistantservice:1
+        image: manojkrishnappa/shoppingassistantservice:latest
         ports:
         - name: http
           containerPort: 8080
-        env:
-        - name: GOOGLE_API_KEY
-          value: GOOGLE_API_KEY_VAL
-        - name: ALLOYDB_CLUSTER_NAME
-          value: ALLOYDB_CLUSTER_NAME_VAL
-        - name: ALLOYDB_INSTANCE_NAME
-          value: ALLOYDB_INSTANCE_NAME_VAL
-        - name: ALLOYDB_DATABASE_NAME
-          value: ALLOYDB_DATABASE_NAME_VAL
-        - name: ALLOYDB_TABLE_NAME
-          value: ALLOYDB_TABLE_NAME_VAL
-        - name: ALLOYDB_SECRET_NAME
-          value: ALLOYDB_SECRET_NAME_VAL
-        - name: PROJECT_ID
-          value: PROJECT_ID_VAL
-        - name: REGION
-          value: REGION_VAL
+        envFrom:
+        - secretRef:
+            name: shopping-assistant-secrets
         resources:
           requests:
             cpu: 100m
@@ -61,7 +44,13 @@ spec:
             cpu: 500m
             memory: 512Mi
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: shoppingassistantservice
+# Create secrets before deploying:
+#
+#   kubectl create secret generic postgres-secret \
+#     --from-literal=password=Manoj7100
+#
+#   kubectl create secret generic shopping-assistant-secrets \
+#     --from-literal=OPENAI_API_KEY=sk-... \
+#     --from-literal=LANGCHAIN_API_KEY=ls-... \
+#     --from-literal=DATABASE_URL="postgresql+psycopg://authuser:Manoj7100@vectordb:5432/shoppingdb" \
+#     --from-literal=COLLECTION_NAME=products

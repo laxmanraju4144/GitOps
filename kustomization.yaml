@@ -15,3 +15,4 @@ resources:
   - recommendationservice/app.yaml
   - shippingservice/app.yaml
   - shoppingassistantservice/app.yaml
+  - vectordb/app.yaml
