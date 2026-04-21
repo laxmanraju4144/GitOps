@@ -29,7 +29,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: manojkrishnappa/currencyservice:cea4d9239000a64af0ebf21a00657d2571ffe999
+        image: laxmanraju/currencyservice:bda7c8793ee2a002fb6cb72c96062ede0e557233
         ports:
         - name: grpc
           containerPort: 7000
