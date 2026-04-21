@@ -18,29 +18,29 @@ labels:
 
 # Image overrides — update tag here when a new image is pushed
 images:
-  - name: manojkrishnappa/adservice
+  - name: laxmanraju/adservice
     newTag: "1"
-  - name: manojkrishnappa/cartservice
+  - name: laxmanraju/cartservice
     newTag: "1"
-  - name: manojkrishnappa/checkoutservice
+  - name: laxmanraju/checkoutservice
     newTag: "1"
-  - name: manojkrishnappa/currencyservice
+  - name: laxmanraju/currencyservice
     newTag: "1"
-  - name: manojkrishnappa/emailservice
+  - name: laxmanraju/emailservice
     newTag: "1"
-  - name: manojkrishnappa/frontend
+  - name: laxmanraju/frontend
     newTag: "1"
-  - name: manojkrishnappa/loadgenerator
+  - name: laxmanraju/loadgenerator
     newTag: "1"
-  - name: manojkrishnappa/paymentservice
+  - name: laxmanraju/paymentservice
     newTag: "1"
-  - name: manojkrishnappa/productcatalogservice
+  - name: laxmanraju/productcatalogservice
     newTag: "1"
-  - name: manojkrishnappa/recommendationservice
+  - name: laxmanraju/recommendationservice
     newTag: "1"
-  - name: manojkrishnappa/shippingservice
+  - name: laxmanraju/shippingservice
     newTag: "1"
-  - name: manojkrishnappa/shoppingassistantservice
+  - name: laxmanraju/shoppingassistantservice
     newTag: "1"
 
 # -------------------------------------------------------
