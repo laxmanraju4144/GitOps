@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - quntamvector.in
+    - svrl.xyz
     secretName: frontend-tls
   rules:
-  - host: quntamvector.in
+  - host: svrl.xyz
     http:
       paths:
       - path: /
