@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - svrl.xyz
+    - laxman.svrl.xyz
     secretName: frontend-tls
   rules:
-  - host: svrl.xyz
+  - host: laxman.svrl.xyz
     http:
       paths:
       - path: /
